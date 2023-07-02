@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create using DOM </title>
+
+    <style>
+        body {
+            background-color: black;
+            color: azure
+        }
+    </style>
+</head>
+<body>    
+</body>
+
+<script>
+    
+    const create = document.createElement("div")
+    console.log(create)
+
+    create.className = "myClass"
+    create.id = Math.round(Math.random() * 10 + 1)
+    create.setAttribute("title", "generated title")
+    create.style.background = "green"
+    create.style.padding = "10px"
+
+    // create.innerText = "Priyanka"
+    // document.body.appendChild(create)
+
+    // Another way
+    const myName = document.createTextNode("Priyanka")
+    create.appendChild(myName)
+    document.body.appendChild(create)
+
+</script>
+</html>
