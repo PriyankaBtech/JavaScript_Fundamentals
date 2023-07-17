@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+
+    <style>
+        body {
+            background-color: #414141;
+            color: azure
+        }
+    </style>
+</head>
+<body>
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('prayer')" ></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>    
+</body>
+<!-- Javascript -->
+<script>
+    // first apporoch | Owl | not a goo way
+
+    // second approch | Convensional way
+    document.getElementById('owl').onclick = function() {
+        alert("Owl Clicked")
+    }
+    // third apporch | use most of time
+    document.getElementById('japan').addEventListener('click', function() {
+        alert("Japan Clicked")
+    }, false) // default => false // event bubbling
+    // true => event capturing
+
+
+    // fourth apporch | attachEvent() | old way
+    // fifth apporch | jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+     
+    // Important
+    // document.getElementById('river').addEventListener('click', function(e) {
+    //     console.log(e)
+    // }, false)
+
+    // Event Propagation
+    document.getElementById('images').addEventListener('click', function(e) {
+        console.log("Click Inside")
+    }, false)
+    document.getElementById('river').addEventListener('click', function(e) {
+        console.log("River clicked")
+        e.stopPropagation() // => stop bubbling -> only clicked value come
+    }, false)
+
+    // false => botton to top => bubble like => the reason is called bubbling
+    // true => top to botton => caturing 
+
+    // LINK
+    document.getElementById('google').addEventListener('click', function(e) {
+        console.log("Google Clicked")
+        e.preventDefault()
+        e.stopPropagation()
+    }, false)    
+
+</script>
+</html>
