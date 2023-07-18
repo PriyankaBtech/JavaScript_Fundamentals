@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body style="background-color: #414141; color: azure">
+    <h1>Let's Understand Async</h1>
+    <button id="stop">STOP</button>
+    <!-- understand on browser -->
+</body>
+
+<script>
+    // setTimeout(() => {
+    //     console.log("Priyanka")            
+    // }, 2000)
+
+    // Another way
+    const writeName = function() {
+        console.log("Priyanka")
+    }
+    setTimeout(writeName, 2000) // give reference
+
+    // Change Heading
+    // document.querySelector('h1').innerHTML = "Understand setTimeut and setInterver"
+
+    // WE WANT CHANGE HEADING BUT AFTER 5 SECONDS
+    const changeHeading = function() {
+        document.querySelector('h1').innerHTML = "Understand setTimeout and setInterval"
+    }
+    //setTimeout(changeHeading, 5000)
+
+    // HOW TO STOP setTimeout
+    const stopSetTimeout = setTimeout(changeHeading, 5000)
+
+    // first way
+    //clearTimeout(stopSetTimeout)
+
+    // another way | with EventListener
+    document.querySelector('#stop').addEventListener('click', function() {
+        clearTimeout(stopSetTimeout)
+        console.log("STOPPED")
+    })
+
+</script>
+</html>
