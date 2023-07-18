@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body style="background-color: #414141; color: azure;">
+    <!-- html -->
+    <h1>Let's Understand setInterval</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+        <!-- understand on Browser  -->
+</body>
+
+<!-- JavaScript -->
+<script>
+    // PRINT NAME
+    // setInterval(function() {
+    //     console.log("Priyanka", Date.now())
+    // }, 2000)
+
+    // Another way
+    const printName = function(str) { // also add the parameter
+        console.log(str, Date.now())
+    }
+    // setInterval(printName, 3000, "Priyanka")
+
+
+    // HOW STOP setInterval
+    //const stopSetInterval = setInterval(printName, 3000, "Priyanka")
+    //clearInterval(stopSetInterval)
+
+
+    // another way | EventListener
+    let interval
+
+    // START
+    document.querySelector('#start').addEventListener('click', function() {
+        //interval = setInterval(printName, 3000, "Priyanka")
+        console.log("START")
+    })
+
+    // STOP
+    document.querySelector('#stop').addEventListener('click', function() {
+        clearInterval(interval)        
+        console.log("STOP")
+    })    
+
+</script>
+</html>
