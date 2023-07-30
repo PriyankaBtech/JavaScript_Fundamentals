@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scope</title>
+</head>
+<body style="background-color: #414141;">
+    <!-- JavaScript -->
+    
+    <script>
+          
+    function Outer() {
+        let ice_cream = "Vanilla"
+        // Is chocolate sharing allow to parent ?
+        // console.log(`Parent : ${chocolate}`) // chocolate is not defined => not allow
+        function inner() {
+            let chocolate = "Dairy Milk"
+            console.log(`Inner : ${ice_cream}`) // priyanka
+        }
+        function innerTwo() {
+            console.log(`Inner Two : ${ice_cream}`)
+            //console.log(chocolate) // chocolate is not defined
+            // NOTE : Siblings not allow to share, only parents allow to share
+        }
+        inner()
+        innerTwo()
+    }
+    Outer()
+    // console.log(ice_cream) // username is not defined
+    </script>
+    
+</body>
+</html>
+
